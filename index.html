@@ -1,621 +1,1397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ALMUNO — Wear Your Identity</title>
-
-    <meta name="description" content="ALMUNO — Wear Your Identity. A modern fashion brand built around style, quality and individuality.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b0b0b;
-            color: #f4f0e8;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 6%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(11, 11, 11, 0.82);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: 800;
-            letter-spacing: 5px;
-        }
-
-        nav {
-            display: flex;
-            gap: 35px;
-            font-size: 13px;
-            letter-spacing: 1.5px;
-        }
-
-        nav a {
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #c9ad72;
-        }
-
-        .cart {
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 80px;
-
-            background:
-                radial-gradient(circle at center, #252525 0%, #101010 45%, #050505 100%);
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .hero-small {
-            font-size: 12px;
-            letter-spacing: 6px;
-            color: #c9ad72;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(55px, 11vw, 125px);
-            letter-spacing: 14px;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 28px;
-        }
-
-        .hero h2 {
-            font-size: clamp(18px, 3vw, 30px);
-            letter-spacing: 7px;
-            font-weight: 400;
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            color: #aaa;
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border: 1px solid #c9ad72;
-            color: #f4f0e8;
-            font-size: 12px;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #c9ad72;
-            color: #0b0b0b;
-        }
-
-        /* STATEMENT */
-        .statement {
-            padding: 120px 8%;
-            text-align: center;
-            background: #f0ece3;
-            color: #111;
-        }
-
-        .statement h2 {
-            font-size: clamp(30px, 5vw, 65px);
-            line-height: 1.1;
-            letter-spacing: 2px;
-        }
-
-        .statement h2 span {
-            color: #8f7646;
-        }
-
-        .statement p {
-            margin-top: 30px;
-            color: #555;
-            letter-spacing: 3px;
-        }
-
-        /* COLLECTION */
-        .section {
-            padding: 110px 7%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title small {
-            color: #c9ad72;
-            letter-spacing: 4px;
-            font-size: 11px;
-        }
-
-        .section-title h2 {
-            font-size: clamp(30px, 5vw, 55px);
-            margin-top: 12px;
-            letter-spacing: 3px;
-        }
-
-        .coming-box {
-            min-height: 420px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border: 1px solid #292929;
-            background:
-                linear-gradient(135deg, #171717, #0d0d0d);
-        }
-
-        .coming-box h3 {
-            font-size: clamp(35px, 6vw, 70px);
-            letter-spacing: 5px;
-        }
-
-        .coming-box p {
-            color: #999;
-            margin-top: 15px;
-            letter-spacing: 2px;
-        }
-
-        /* WHY ALMUNO */
-        .why {
-            background: #111;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .feature {
-            padding: 45px 25px;
-            border: 1px solid #292929;
-            text-align: center;
-        }
-
-        .feature h3 {
-            color: #c9ad72;
-            font-size: 15px;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
-
-        .feature p {
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* STORY */
-        .story {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 550px;
-        }
-
-        .story-image {
-            min-height: 500px;
-            background:
-                linear-gradient(135deg, #292929, #111);
-        }
-
-        .story-content {
-            padding: 80px 9%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: #151515;
-        }
-
-        .story-content small {
-            color: #c9ad72;
-            letter-spacing: 4px;
-        }
-
-        .story-content h2 {
-            font-size: clamp(35px, 5vw, 65px);
-            margin: 18px 0 25px;
-        }
-
-        .story-content p {
-            color: #aaa;
-            max-width: 500px;
-            margin-bottom: 30px;
-        }
-
-        /* PHILOSOPHY */
-        .philosophy {
-            padding: 130px 8%;
-            text-align: center;
-            background: #f0ece3;
-            color: #111;
-        }
-
-        .philosophy h2 {
-            font-size: clamp(30px, 5vw, 65px);
-            letter-spacing: 4px;
-        }
-
-        .philosophy .meaning {
-            margin-top: 25px;
-            color: #806b42;
-            letter-spacing: 3px;
-            font-weight: bold;
-        }
-
-        .philosophy p {
-            max-width: 650px;
-            margin: 30px auto 0;
-            color: #555;
-        }
-
-        /* COMING SOON */
-        .final-cta {
-            padding: 130px 8%;
-            text-align: center;
-            background:
-                radial-gradient(circle at center, #292929, #080808 70%);
-        }
-
-        .final-cta h2 {
-            font-size: clamp(35px, 6vw, 75px);
-            letter-spacing: 5px;
-        }
-
-        .final-cta p {
-            color: #999;
-            margin: 20px 0 35px;
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 60px 7% 30px;
-            background: #050505;
-            border-top: 1px solid #222;
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .footer-logo {
-            font-size: 25px;
-            letter-spacing: 5px;
-            font-weight: bold;
-        }
-
-        .footer-tagline {
-            color: #888;
-            margin-top: 10px;
-            font-size: 13px;
-            letter-spacing: 2px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            color: #aaa;
-            font-size: 13px;
-        }
-
-        .copyright {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid #222;
-            color: #666;
-            font-size: 12px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 800px) {
-
-            header {
-                padding: 17px 5%;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .logo {
-                font-size: 21px;
-                letter-spacing: 4px;
-            }
-
-            .hero {
-                min-height: 90vh;
-            }
-
-            .hero h1 {
-                letter-spacing: 8px;
-            }
-
-            .hero h2 {
-                letter-spacing: 4px;
-            }
-
-            .features {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .story {
-                grid-template-columns: 1fr;
-            }
-
-            .story-image {
-                min-height: 350px;
-            }
-
-            .section {
-                padding: 80px 5%;
-            }
-
-            .statement,
-            .philosophy,
-            .final-cta {
-                padding: 90px 6%;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 52px;
-                letter-spacing: 6px;
-            }
-
-            .hero h2 {
-                font-size: 16px;
-                letter-spacing: 3px;
-            }
-
-            .footer-top {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ALMUNO — Wear Your Identity</title>
+  <meta name="description" content="ALMUNO — Fashion that reflects your identity. Premium everyday wear, coming soon.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #080808;
+      --deep: #111111;
+      --charcoal: #191919;
+      --cream: #f2eee5;
+      --soft: #c9c3b7;
+      --gold: #c7aa72;
+      --line: rgba(255,255,255,0.12);
+      --max: 1240px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(8,8,8,0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #d8d4cc;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 35%, rgba(199,170,114,0.13), transparent 28%),
+        radial-gradient(circle at 15% 80%, rgba(255,255,255,0.05), transparent 25%),
+        linear-gradient(135deg, #080808 0%, #111111 50%, #080808 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8,8,8,0.96), rgba(8,8,8,0.55), rgba(8,8,8,0.82)),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 100px,
+          rgba(255,255,255,0.018) 101px
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 90px;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(58px, 10vw, 138px);
+      line-height: 0.88;
+      letter-spacing: -5px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(242,238,229,0.7);
+    }
+
+    .hero-sub {
+      max-width: 500px;
+      color: var(--soft);
+      font-size: 16px;
+      margin: 34px 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 27px;
+      border: 1px solid var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--cream);
+      color: var(--black);
+      border-color: var(--cream);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .hero-side {
+      position: absolute;
+      right: 7%;
+      bottom: 10%;
+      z-index: 2;
+      writing-mode: vertical-rl;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 4px;
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    /* ================= TICKER ================= */
+
+    .ticker {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      background: #0d0d0d;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 25s linear infinite;
+    }
+
+    .ticker-item {
+      padding: 20px 45px;
+      color: #aaa49a;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .ticker-item strong {
+      color: var(--gold);
+      font-weight: normal;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 17px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: -2px;
+      max-width: 800px;
+    }
+
+    .section-text {
+      color: var(--soft);
+      max-width: 620px;
+      margin-top: 24px;
+      font-size: 15px;
+    }
+
+    /* ================= STATEMENT ================= */
+
+    .statement {
+      background: var(--cream);
+      color: var(--black);
+      text-align: center;
+    }
+
+    .statement .section-label {
+      color: #8b7140;
+    }
+
+    .statement h2 {
+      font-size: clamp(38px, 6vw, 78px);
+      line-height: 1;
+      letter-spacing: -3px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .statement p {
+      max-width: 600px;
+      margin: 28px auto 0;
+      color: #55514a;
+      font-size: 15px;
+    }
+
+    /* ================= COLLECTION ================= */
+
+    .collection {
+      background: #0b0b0b;
+    }
+
+    .collection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 55px;
+    }
+
+    .collection-header .section-text {
+      margin: 0;
+      max-width: 430px;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .collection-card {
+      position: relative;
+      min-height: 470px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 28%, rgba(199,170,114,0.18), transparent 25%),
+        linear-gradient(145deg, #1d1d1d, #0e0e0e);
+      border: 1px solid var(--line);
+    }
+
+    .collection-card:nth-child(2) {
+      background:
+        radial-gradient(circle at 50% 32%, rgba(255,255,255,0.09), transparent 28%),
+        linear-gradient(145deg, #242424, #0b0b0b);
+    }
+
+    .collection-card:nth-child(3) {
+      background:
+        radial-gradient(circle at 50% 32%, rgba(199,170,114,0.12), transparent 28%),
+        linear-gradient(145deg, #171717, #090909);
+    }
+
+    .shirt-shape {
+      position: absolute;
+      width: 180px;
+      height: 230px;
+      left: 50%;
+      top: 43%;
+      transform: translate(-50%, -50%);
+      background: #252525;
+      clip-path: polygon(
+        20% 0,
+        37% 12%,
+        50% 17%,
+        63% 12%,
+        80% 0,
+        100% 20%,
+        86% 36%,
+        76% 28%,
+        76% 100%,
+        24% 100%,
+        24% 28%,
+        14% 36%,
+        0 20%
+      );
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+    }
+
+    .shirt-shape::after {
+      content: "ALMUNO";
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+      color: rgba(242,238,229,0.7);
+      font-size: 11px;
+      letter-spacing: 3px;
+    }
+
+    .card-info {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 23px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+    }
+
+    .card-number {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .card-name {
+      font-size: 17px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .coming {
+      color: #999;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    /* ================= FEATURES ================= */
+
+    .features {
+      background: #111;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 60px;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .feature {
+      padding: 38px 28px;
+      min-height: 230px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      margin-bottom: 30px;
+      font-size: 12px;
+    }
+
+    .feature h3 {
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #858078;
+      font-size: 13px;
+    }
+
+    /* ================= STORY ================= */
+
+    .story {
+      background:
+        linear-gradient(90deg, #0b0b0b 0%, #101010 55%, #0a0a0a 100%);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .story-visual {
+      min-height: 540px;
+      position: relative;
+      background:
+        linear-gradient(145deg, rgba(199,170,114,0.13), transparent 45%),
+        #161616;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .story-visual::before {
+      content: "ALMUNO";
+      position: absolute;
+      font-size: clamp(55px, 8vw, 120px);
+      font-weight: 800;
+      letter-spacing: -4px;
+      color: rgba(255,255,255,0.035);
+      transform: rotate(-90deg);
+      left: -105px;
+      top: 200px;
+    }
+
+    .story-frame {
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      border: 1px solid rgba(199,170,114,0.5);
+      top: 15%;
+      left: 15%;
+    }
+
+    .story-frame::after {
+      content: "IDENTITY";
+      position: absolute;
+      right: -48px;
+      top: 50%;
+      transform: rotate(90deg);
+      color: var(--gold);
+      font-size: 9px;
+      letter-spacing: 4px;
+    }
+
+    .story-copy h2 {
+      font-size: clamp(38px, 5vw, 65px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .story-copy p {
+      color: var(--soft);
+      font-size: 15px;
+      margin-bottom: 18px;
+      max-width: 520px;
+    }
+
+    /* ================= PHILOSOPHY ================= */
+
+    .philosophy {
+      text-align: center;
+      background: #080808;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .philosophy .big-word {
+      font-size: clamp(48px, 10vw, 145px);
+      line-height: 0.9;
+      letter-spacing: -7px;
+      font-weight: 800;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(242,238,229,0.35);
+    }
+
+    .philosophy h3 {
+      margin-top: 28px;
+      color: var(--gold);
+      letter-spacing: 4px;
+      font-size: 13px;
+    }
+
+    .philosophy p {
+      max-width: 650px;
+      margin: 18px auto 0;
+      color: var(--soft);
+      font-size: 15px;
+    }
+
+    /* ================= INFO ================= */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 45px;
+      background: #121212;
+      border: 1px solid var(--line);
+    }
+
+    .info-card h3 {
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .info-card p {
+      color: #8e8a83;
+      font-size: 14px;
+    }
+
+    .info-card .small-label {
+      color: var(--gold);
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* ================= CTA ================= */
+
+    .final-cta {
+      padding: 140px 0;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(199,170,114,0.12), transparent 40%),
+        #0a0a0a;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(45px, 8vw, 105px);
+      line-height: 0.9;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+    }
+
+    .final-cta p {
+      color: var(--soft);
+      max-width: 520px;
+      margin: auto auto 32px;
+      font-size: 15px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #050505;
+      border-top: 1px solid var(--line);
+      padding: 55px 0 25px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 45px;
+    }
+
+    .footer-brand p {
+      color: #77736c;
+      max-width: 340px;
+      margin-top: 18px;
+      font-size: 13px;
+    }
+
+    .footer-col h4 {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #aaa69f;
+      font-size: 13px;
+      margin-bottom: 10px;
+      transition: 0.3s;
+    }
+
+    .footer-col a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #5e5b56;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 850px) {
+
+      .nav {
+        height: 70px;
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: rgba(8,8,8,0.98);
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        padding: 17px 5%;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        min-height: 780px;
+      }
+
+      .hero-content {
+        padding-top: 90px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-side {
+        display: none;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .collection-header {
+        display: block;
+      }
+
+      .collection-header .section-text {
+        margin-top: 20px;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collection-card {
+        min-height: 420px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .story-visual {
+        min-height: 420px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      .brand-name {
+        font-size: 16px;
+        letter-spacing: 4px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .hero {
+        min-height: 720px;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        min-height: auto;
+      }
+
+      .info-card {
+        padding: 30px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <a href="#" class="logo">ALMUNO</a>
+  <!-- ================= HEADER ================= -->
 
-        <nav>
-            <a href="#home">HOME</a>
-            <a href="#collection">SHOP</a>
-            <a href="#story">ABOUT</a>
-            <a href="#contact">CONTACT</a>
-        </nav>
+  <header>
+    <div class="container nav">
 
-        <a href="#collection" class="cart">CART (0)</a>
-    </header>
+      <a href="#home" class="brand">
+        <div class="brand-mark">A</div>
+        <div class="brand-name">ALMUNO</div>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+      <nav id="mainNav">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#collection" onclick="closeMenu()">Collection</a>
+        <a href="#story" onclick="closeMenu()">Our Story</a>
+        <a href="#info" onclick="closeMenu()">Info</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </nav>
+
+    </div>
+  </header>
 
 
-    <!-- HERO -->
-    <section class="hero" id="home">
+  <!-- ================= HERO ================= -->
+
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="container">
+
         <div class="hero-content">
 
-            <div class="hero-small">FASHION • STYLE • IDENTITY</div>
+          <div class="eyebrow">
+            Independent Fashion Brand
+          </div>
 
-            <h1>ALMUNO</h1>
+          <h1>
+            Wear
+            <span>Your Identity.</span>
+          </h1>
 
-            <h2>WEAR YOUR IDENTITY</h2>
+          <p class="hero-sub">
+            ALMUNO is built for people who believe style is more than clothing.
+            It is a reflection of who you are.
+          </p>
 
-            <p>Style. Quality. Identity.</p>
+          <div class="hero-buttons">
+            <a href="#collection" class="btn btn-primary">
+              Discover ALMUNO
+            </a>
 
-            <a href="#collection" class="btn">DISCOVER ALMUNO</a>
+            <a href="#story" class="btn btn-outline">
+              Our Story
+            </a>
+          </div>
 
         </div>
+
+      </div>
+
+      <div class="hero-side">
+        ALMUNO / EST. 2026
+      </div>
+
     </section>
 
 
-    <!-- STATEMENT -->
+    <!-- ================= TICKER ================= -->
+
+    <div class="ticker">
+      <div class="ticker-track">
+
+        <div class="ticker-item">
+          <strong>ALMUNO</strong> — WEAR YOUR IDENTITY
+        </div>
+
+        <div class="ticker-item">
+          STYLE <strong>•</strong> QUALITY <strong>•</strong> COMFORT
+        </div>
+
+        <div class="ticker-item">
+          EVERY LIFE IS <strong>UNIQUE</strong>
+        </div>
+
+        <div class="ticker-item">
+          <strong>ALMUNO</strong> — WEAR YOUR IDENTITY
+        </div>
+
+        <div class="ticker-item">
+          STYLE <strong>•</strong> QUALITY <strong>•</strong> COMFORT
+        </div>
+
+        <div class="ticker-item">
+          EVERY LIFE IS <strong>UNIQUE</strong>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ================= STATEMENT ================= -->
+
     <section class="statement">
+
+      <div class="container">
+
+        <div class="section-label">
+          The ALMUNO Mindset
+        </div>
+
         <h2>
-            NOT JUST WHAT YOU WEAR.<br>
-            <span>IT'S WHO YOU ARE.</span>
+          NOT JUST WHAT YOU WEAR.<br>
+          IT'S WHO YOU ARE.
         </h2>
 
-        <p>YOUR STYLE. YOUR STORY. YOUR IDENTITY.</p>
-    </section>
-
-
-    <!-- COLLECTION -->
-    <section class="section" id="collection">
-
-        <div class="section-title">
-            <small>THE FIRST CHAPTER</small>
-            <h2>FIRST COLLECTION</h2>
-        </div>
-
-        <div class="coming-box">
-
-            <h3>COMING SOON</h3>
-
-            <p>
-                Our first collection is on its way.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- WHY ALMUNO -->
-    <section class="section why">
-
-        <div class="section-title">
-            <small>WHY ALMUNO</small>
-            <h2>BUILT WITH PURPOSE</h2>
-        </div>
-
-        <div class="features">
-
-            <div class="feature">
-                <h3>STYLE</h3>
-                <p>Modern and timeless designs made to stand out.</p>
-            </div>
-
-            <div class="feature">
-                <h3>QUALITY</h3>
-                <p>Made with attention to detail and purpose.</p>
-            </div>
-
-            <div class="feature">
-                <h3>COMFORT</h3>
-                <p>Designed for everyday confidence and comfort.</p>
-            </div>
-
-            <div class="feature">
-                <h3>IDENTITY</h3>
-                <p>Wear something that represents who you are.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- STORY -->
-    <section class="story" id="story">
-
-        <div class="story-image"></div>
-
-        <div class="story-content">
-
-            <small>OUR STORY</small>
-
-            <h2>YOUR STORY.<br>YOUR IDENTITY.</h2>
-
-            <p>
-                Every life tells a different story.
-                ALMUNO exists to help you wear yours.
-            </p>
-
-            <a href="#philosophy" class="btn">DISCOVER OUR STORY</a>
-
-        </div>
-
-    </section>
-
-
-    <!-- PHILOSOPHY -->
-    <section class="philosophy" id="philosophy">
-
-        <h2>ALMUNO</h2>
-
-        <div class="meaning">
-            ALL LIFE MEANS UNIQUE NARRATOR OPTION
-        </div>
-
         <p>
-            Every life is unique.
-            Every story deserves its own identity.
-            ALMUNO is created for those who choose to express
-            themselves through what they wear.
+          Fashion should not hide your identity.
+          It should give it a voice.
         </p>
 
-        <br>
-
-        <strong>WEAR YOUR IDENTITY</strong>
+      </div>
 
     </section>
 
 
-    <!-- FINAL CTA -->
+    <!-- ================= COLLECTION ================= -->
+
+    <section class="collection" id="collection">
+
+      <div class="container">
+
+        <div class="collection-header">
+
+          <div>
+            <div class="section-label">
+              First Collection
+            </div>
+
+            <h2 class="section-title">
+              THE FIRST CHAPTER.
+            </h2>
+          </div>
+
+          <p class="section-text">
+            A new collection is being prepared.
+            Designed with a focus on everyday style,
+            comfort and identity.
+          </p>
+
+        </div>
+
+
+        <div class="collection-grid">
+
+          <div class="collection-card">
+
+            <div class="shirt-shape"></div>
+
+            <div class="card-info">
+
+              <div>
+                <div class="card-number">01</div>
+                <div class="card-name">Essential Tee</div>
+                <div class="coming">Coming Soon</div>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="collection-card">
+
+            <div class="shirt-shape"></div>
+
+            <div class="card-info">
+
+              <div>
+                <div class="card-number">02</div>
+                <div class="card-name">Identity Tee</div>
+                <div class="coming">Coming Soon</div>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="collection-card">
+
+            <div class="shirt-shape"></div>
+
+            <div class="card-info">
+
+              <div>
+                <div class="card-number">03</div>
+                <div class="card-name">Signature Tee</div>
+                <div class="coming">Coming Soon</div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+      <div class="container">
+
+        <div class="section-label">
+          What We Stand For
+        </div>
+
+        <h2 class="section-title">
+          SIMPLE. BOLD. PERSONAL.
+        </h2>
+
+        <div class="features-grid">
+
+          <div class="feature">
+
+            <div class="feature-icon">01</div>
+
+            <h3>Style</h3>
+
+            <p>
+              Clean designs created to make everyday fashion feel effortless.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">02</div>
+
+            <h3>Quality</h3>
+
+            <p>
+              We believe good design should be matched with good quality.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">03</div>
+
+            <h3>Comfort</h3>
+
+            <p>
+              Clothing should look good, feel good and fit naturally into life.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">04</div>
+
+            <h3>Identity</h3>
+
+            <p>
+              Your style is personal. ALMUNO exists to help you express it.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= STORY ================= -->
+
+    <section class="story" id="story">
+
+      <div class="container story-grid">
+
+        <div class="story-visual">
+
+          <div class="story-frame"></div>
+
+        </div>
+
+
+        <div class="story-copy">
+
+          <div class="section-label">
+            Our Story
+          </div>
+
+          <h2>
+            EVERY LIFE HAS A STORY.
+          </h2>
+
+          <p>
+            ALMUNO was created from a simple idea:
+            clothing should feel personal.
+          </p>
+
+          <p>
+            We want to build a fashion brand where
+            design, comfort and individuality come together.
+          </p>
+
+          <p>
+            Because your clothes are not just something
+            you put on. They become part of your identity.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PHILOSOPHY ================= -->
+
+    <section class="philosophy">
+
+      <div class="container">
+
+        <div class="section-label">
+          Our Philosophy
+        </div>
+
+        <div class="big-word">
+          ALMUNO
+        </div>
+
+        <h3>
+          ALL LIFE MEANS UNIQUE NARRATOR OPTION
+        </h3>
+
+        <p>
+          Every life is unique.
+          Every story deserves its own identity.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= INFO ================= -->
+
+    <section id="info">
+
+      <div class="container">
+
+        <div class="section-label">
+          Before The Launch
+        </div>
+
+        <h2 class="section-title">
+          BUILT WITH PURPOSE.
+        </h2>
+
+        <div class="info-grid">
+
+          <div class="info-card">
+
+            <div class="small-label">
+              Size Guide
+            </div>
+
+            <h3>
+              Find Your Fit
+            </h3>
+
+            <p>
+              Detailed size information will be available
+              when the first collection launches.
+            </p>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <div class="small-label">
+              Delivery & Return
+            </div>
+
+            <h3>
+              Simple & Clear
+            </h3>
+
+            <p>
+              Delivery and return information will be published
+              with the product launch.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= FINAL CTA ================= -->
+
     <section class="final-cta">
 
-        <h2>SOMETHING NEW<br>IS COMING.</h2>
+      <div class="container">
 
-        <p>Our first collection is on its way.</p>
+        <div class="section-label">
+          The Beginning
+        </div>
 
-        <a href="#contact" class="btn">FOLLOW OUR JOURNEY</a>
+        <h2>
+          SOMETHING<br>
+          NEW IS COMING.
+        </h2>
+
+        <p>
+          The first ALMUNO collection is currently being prepared.
+          Follow the journey and be ready for the launch.
+        </p>
+
+        <a href="#contact" class="btn btn-primary">
+          Stay Connected
+        </a>
+
+      </div>
 
     </section>
 
+  </main>
 
-    <!-- FOOTER -->
-    <footer id="contact">
 
-        <div class="footer-top">
+  <!-- ================= FOOTER ================= -->
 
-            <div>
-                <div class="footer-logo">ALMUNO</div>
-                <div class="footer-tagline">
-                    WEAR YOUR IDENTITY
-                </div>
+  <footer id="contact">
+
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a href="#home" class="brand">
+
+            <div class="brand-mark">A</div>
+
+            <div class="brand-name">
+              ALMUNO
             </div>
 
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#collection">Shop</a>
-                <a href="#story">About</a>
-                <a href="#contact">Contact</a>
-            </div>
+          </a>
+
+          <p>
+            Fashion made personal.
+            Wear your identity.
+          </p>
 
         </div>
 
-        <div class="copyright">
-            © 2026 ALMUNO. All Rights Reserved.
+
+        <div class="footer-col">
+
+          <h4>Explore</h4>
+
+          <a href="#home">Home</a>
+          <a href="#collection">Collection</a>
+          <a href="#story">Our Story</a>
+          <a href="#info">Information</a>
+
         </div>
 
-    </footer>
+
+        <div class="footer-col">
+
+          <h4>Connect</h4>
+
+          <a href="#" onclick="comingSoon(event)">
+            Facebook
+          </a>
+
+          <a href="#" onclick="comingSoon(event)">
+            Instagram
+          </a>
+
+          <a href="mailto:hello@almuno.com">
+            Email
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <div>
+          © 2026 ALMUNO. All Rights Reserved.
+        </div>
+
+        <div>
+          Wear Your Identity.
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("mainNav").classList.toggle("active");
+    }
+
+    function closeMenu() {
+      document.getElementById("mainNav").classList.remove("active");
+    }
+
+    function comingSoon(event) {
+      event.preventDefault();
+      alert("ALMUNO social page will be connected soon.");
+    }
+
+  </script>
 
 </body>
 </html>
